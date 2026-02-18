@@ -34,10 +34,10 @@ const AdminDashboard = ({ setAuth }) => {
         return () => clearTimeout(delayDebounceFn);
     }, [fetchLeads]);
 
-    const handleLogout = () => {
+    const handleLogout = useCallback(() => {
         localStorage.removeItem('token');
         setAuth(false);
-    };
+    }, [setAuth]);
 
     const updateStatus = async (id, newStatus) => {
         try {
